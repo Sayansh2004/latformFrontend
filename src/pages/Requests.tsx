@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/constants/constants";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import {toast} from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests } from "@/utils/requestSlice";
@@ -11,8 +11,11 @@ import type { RequestData } from "@/Types/requestData";
 export default function Requests() {
     const dispatch=useDispatch();
     const requests=useSelector((store:any)=>store.request);
+    const [isLoading,setIsLoading]=useState<boolean>(true)
+
     const fetchRequests=async()=>{
         try{
+            setIsLoading(true)
             const response=await fetch(`${BASE_URL}/user/requests`,{credentials:"include"});
             if(!response.ok){
                 throw new Error("failed fetching requests")
@@ -28,15 +31,21 @@ export default function Requests() {
             if(err instanceof Error){
                 toast.error("Unable to fetch Requests");
             }
+        }finally{
+            setIsLoading(false);
         }
 
     }
     useEffect(()=>{
-        if(!requests || requests.length===0)
-        fetchRequests();
+        if(!requests || requests.length===0){
+              fetchRequests();
+        }else{
+            setIsLoading(false)
+        }
+      
     },[]);
 
-    if(!requests){
+    if(!requests || isLoading){
         return <Shimmer/>;
     }
   return (
