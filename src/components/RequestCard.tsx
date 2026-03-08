@@ -18,6 +18,7 @@ export default function RequestCard({data}:RequestCardProps) {
 
     const handleAcceptance=async()=>{
         try{
+            
             const response=await fetch(`${BASE_URL}/request/review/accepted/${requestId}`,{
               method:"POST",
               credentials:"include"
@@ -41,7 +42,7 @@ export default function RequestCard({data}:RequestCardProps) {
 
     const handleRejection=async()=>{
         try{
-           const response=await fetch(`${BASE_URL}/request/review/rejected/${_id}`,{
+           const response=await fetch(`${BASE_URL}/request/review/rejected/${requestId}`,{
             method:"POST",
             credentials:"include"
            });

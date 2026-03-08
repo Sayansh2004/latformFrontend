@@ -34,7 +34,7 @@ export default function Requests() {
     useEffect(()=>{
         if(!requests || requests.length===0)
         fetchRequests();
-    },[requests]);
+    },[]);
 
     if(!requests){
         return <Shimmer/>;
