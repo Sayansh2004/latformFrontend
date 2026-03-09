@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute.tsx';
 import Feed from './pages/Feed.tsx';
 import Billing from './pages/Billing.tsx';
 import Requests from './pages/Requests.tsx';
+import Connections from './pages/Connections.tsx';
 const appRouter=createBrowserRouter([
   {
     path:"/login",
@@ -33,6 +34,14 @@ const appRouter=createBrowserRouter([
           </ProtectedRoute>
        
       )
+      },
+      {
+        path:"/connections",
+        element:(
+          <ProtectedRoute>
+            <Connections/>
+          </ProtectedRoute>
+        )
       },
       {
         path:"/billing",

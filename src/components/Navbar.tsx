@@ -58,7 +58,7 @@ export default function Navbar() {
         </div>
         <div className="flex gap-2">
             <div>
-               <Button variant="ghost">Connections</Button>
+               <Button variant="ghost"><Link to="/connections">Connections</Link></Button>
             <Button variant="ghost"><Link to="/">Home</Link></Button>
             <Button variant="ghost">About</Button>
             </div>
