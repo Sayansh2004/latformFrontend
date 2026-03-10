@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import type { ProfileData } from "@/Types/profileData";
+import {Link }from "react-router-dom";
 
 type ConnectionCardProps = {
   data: ProfileData;
@@ -8,7 +9,8 @@ type ConnectionCardProps = {
 
 export default function ConnectionCard({ data }: ConnectionCardProps) {
 
-  const { firstName, lastName, photourl, about, skills } = data;
+
+  const { firstName, lastName, photourl, about, skills,_id } = data;
   console.log(data)
   return (
     <div className="bg-card border rounded-2xl shadow-sm hover:shadow-md transition p-5 flex flex-col gap-4">
@@ -54,7 +56,7 @@ export default function ConnectionCard({ data }: ConnectionCardProps) {
       <div className="mt-auto flex justify-center">
         <Button className="w-full gap-2">
           <MessageCircle size={16} />
-          Chat
+          <Link to={`/chat/${_id}`}>Chat</Link> 
         </Button>
       </div>
 

@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/constants/constants";
-import { addConnections } from "@/utils/connectionSlice";
+import { addConnections } from "../utils/connectionSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";

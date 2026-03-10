@@ -1,4 +1,5 @@
 export type ProfileData={
+    _id:number,
     firstName:string,
     lastName:string,
     photourl:string,

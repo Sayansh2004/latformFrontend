@@ -13,6 +13,7 @@ import Feed from './pages/Feed.tsx';
 import Billing from './pages/Billing.tsx';
 import Requests from './pages/Requests.tsx';
 import Connections from './pages/Connections.tsx';
+import Chat from './pages/Chat.tsx';
 const appRouter=createBrowserRouter([
   {
     path:"/login",
@@ -56,6 +57,14 @@ const appRouter=createBrowserRouter([
         element:(
           <ProtectedRoute>
             <Requests/>
+          </ProtectedRoute>
+        )
+      },
+      {
+        path:"/chat/:chatId",
+        element:(
+          <ProtectedRoute>
+            <Chat/>
           </ProtectedRoute>
         )
       }
