@@ -1,7 +1,7 @@
-
+import ChatSidebar from "@/components/chat/ChatSidebar"
 
 export default function Chat() {
   return (
-    <div>Chat</div>
+    <div><ChatSidebar/></div>
   )
 }
